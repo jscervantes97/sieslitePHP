@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>App Vales Digitales</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+ 
+  </style>
+</head>
+<body>
+
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <p class="nav-link btn" onClick="navegar('Inicio')" >Inicio</p>
+      </li>
+      <li class="nav-item">
+        <p class="nav-link btn" onClick="navegar('Disponible')">Disponible</p>
+      </li>
+      <li class="nav-item">
+        <p class="nav-link btn" onClick="navegar('Generar')">Generar Vale Digital</p>
+      </li>
+      <li class="nav-item">
+        <p class="nav-link btn" onClick="navegar('ListaVales')">Lista de Vales Digitales</p>
+      </li>
+      <li class="nav-item">
+        <p class="nav-link btn" onClick="navegar('EstadoCuenta')">Estado de Cuenta</p>
+      </li>
+      <li class="nav-item">
+        <p class="nav-link btn" onClick="navegar('Clientes')">Mis Clientes</p>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-5 bg-gray">
+  <div class="row">
+    
+    <div class="col-sm-12 tex-center">
+      <div id="bodyLoader" >
+        <p class="text-center" style="font-size: 24px;">Hola, Jesus Cervantes, Bienvenido<p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script>
+let navegar = (opcion)=>{
+    
+    let salida = '' ; 
+    switch (opcion){
+        case 'Inicio': 
+        salida = `<p class="text-center" style="font-size: 24px;">Hola, Jesus Cervantes, Bienvenido<p>`
+        break;
+        case 'Disponible':  
+        salida = `
+        <div class="container-fluid p-5 bg-dark text-white text-center">
+            <h1>Saldo Disponible</h1>
+        </div>
+        
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-sm-4 text-center">
+                <h3 >Saldo Total</h3>
+                <p>$ 10,000.00</p>
+                </div>
+                <div class="col-sm-4 text-center">
+                <h3 >Saldo Utilizado/Colocado</h3>
+                <p>$ 8,000.00</p>
+                </div>
+                <div class="col-sm-4 text-center">
+                <h3 >Saldo Disponible</h3>
+                <p>$ 2,000.00</p>
+                <p>Para poder disponer de mas saldo recuerda realizar tus abonos</p>
+                </div>
+            </div>
+        </div>
+        ` ; 
+        break;
+        case 'Generar': 
+        salida = `
+        <div class="container-fluid p-5 bg-dark text-white text-center">
+            <h1>Generar Nuevo Vale</h1>
+        </div>
+        <form>
+            <div class="mb-3 mt-3">
+                <label for="email" class="form-label">Cliente:</label>
+                <select class="form-select">
+                    <option>Yo</option>
+                    <option>Jonathan Envila</option>
+                    <option>Jesus Sanchez</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="pwd" class="form-label">Monto Del Vale</label>
+                <input type="text" class="form-control" id="pwd" placeholder="Ingrese El Monto Deseado" name="pswd">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="email" class="form-label">Numero De Quincenas a Pagar:</label>
+                <select class="form-select">
+                    <option>6</option>
+                    <option>12</option>
+                    <option>16</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Aceptar</button>
+        </form>
+        `;
+        break;
+        case 'ListaVales': 
+        salida = `
+        <div class="container-fluid p-5 bg-dark text-white text-center">
+            <h1>Vales Generados</h1>
+        </div>
+        <div class="container mt-3">
+            <p></p> 
+            <div class="input-group mb-3">
+                <span class="input-group-text">Buscar:</span>
+                <input type="text" class="form-control">
+            </div>         
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Folio Vale</th>
+                    <th>Nombre Cliente</th>
+                    <th>Monto Vale</th>
+                    <th>Fecha Generacion</th>
+                    <th>Opciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>VD00001</td>
+                    <td>Jesus Sanchez</td>
+                    <td>$4,000.00</td>
+                    <td>01/05/2023</td>
+                    <td><button type="button" class="btn btn-info">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-detailed" viewBox="0 0 16 16">
+                        <path d="M4 5.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5ZM5 7a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2H5Z"/>
+                        <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5ZM1.5 4a.5.5 0 0 0-.5.5v1.05a2.5 2.5 0 0 1 0 4.9v1.05a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-1.05a2.5 2.5 0 0 1 0-4.9V4.5a.5.5 0 0 0-.5-.5h-13Z"/>
+                        </svg></button></td>
+                </tr>
+                <tr>
+                    <td>VD00002</td>
+                    <td>Jesus Sanchez</td>
+                    <td>$4,000.00</td>
+                    <td>01/06/2023</td>
+                    <td><button type="button" class="btn btn-info">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-detailed" viewBox="0 0 16 16">
+                        <path d="M4 5.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5ZM5 7a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2H5Z"/>
+                        <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5ZM1.5 4a.5.5 0 0 0-.5.5v1.05a2.5 2.5 0 0 1 0 4.9v1.05a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-1.05a2.5 2.5 0 0 1 0-4.9V4.5a.5.5 0 0 0-.5-.5h-13Z"/>
+                        </svg></button></td>
+                </tr>
+                </tbody>
+            </table>
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+            </ul>
+        </div>
+        `;
+        break;
+        case 'EstadoCuenta': 
+        salida = `
+        <div class="container-fluid p-5 bg-dark text-white text-center">
+            <h1>Estado de Cuenta</h1>
+            <p>Ultima Fecha Corte: 31/06/2023</p>
+        </div>
+        
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-sm-4 text-center">
+                <h3 >Folio Vale</h3>
+                <p>VD0001</p>
+                <p>VD0002</p>
+                </div>
+                <div class="col-sm-4 text-center">
+                <h3 >Numero de Pago</h3>
+                <p>1/16</p>
+                <p>4/16</p>
+                </div>
+                <div class="col-sm-4 text-center">
+                <h3 >Pago Quincena</h3>
+                <p>$ 600.00</p>
+                <p>$ 600.00</p>
+                <hr>
+                <p>$ 1,200.00</p>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+        `;
+        break;
+        case 'Clientes': 
+        salida = `
+        <div class="container-fluid p-5 bg-dark text-white text-center">
+            <h1>Mis Clientes</h1>
+        </div>
+        <div class="container mt-3">
+            <p></p> 
+            <div class="input-group mb-3">
+                <span class="input-group-text">Buscar:</span>
+                <input type="text" class="form-control">
+            </div>         
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Folio Cliente</th>
+                    <th>Nombre Cliente</th>
+                    <th>Estatus Cliente</th>
+                    <th>Fecha Alta</th>
+                    <th>Opciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>C00001</td>
+                    <td>Jesus Sanchez</td>
+                    <td>Activo</td>
+                    <td>01/01/2023</td>
+                    <td><button type="button" class="btn btn-info">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-detailed" viewBox="0 0 16 16">
+                        <path d="M4 5.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5ZM5 7a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2H5Z"/>
+                        <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5ZM1.5 4a.5.5 0 0 0-.5.5v1.05a2.5 2.5 0 0 1 0 4.9v1.05a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-1.05a2.5 2.5 0 0 1 0-4.9V4.5a.5.5 0 0 0-.5-.5h-13Z"/>
+                        </svg></button></td>
+                </tr>
+                <tr>
+                    <td>C00002</td>
+                    <td>Jonathan Envila</td>
+                    <td>Activo</td>
+                    <td>01/02/2023</td>
+                    <td><button type="button" class="btn btn-info">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-detailed" viewBox="0 0 16 16">
+                        <path d="M4 5.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5Zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5ZM5 7a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2H5Z"/>
+                        <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6V4.5ZM1.5 4a.5.5 0 0 0-.5.5v1.05a2.5 2.5 0 0 1 0 4.9v1.05a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-1.05a2.5 2.5 0 0 1 0-4.9V4.5a.5.5 0 0 0-.5-.5h-13Z"/>
+                        </svg></button></td>
+                </tr>
+                </tbody>
+            </table>
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+            </ul>
+        </div>
+        `;
+        break;
+    }
+    document.getElementById("bodyLoader").innerHTML = salida ;  
+}
+</script>
+
+
+</body>
+</html>
